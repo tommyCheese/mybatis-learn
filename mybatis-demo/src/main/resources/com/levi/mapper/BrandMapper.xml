@@ -78,10 +78,37 @@
     </select>
 
     <!--  条件查询  -->
+<!--    <select id="selectByCondition" resultMap="brandResultMap">-->
+<!--        select * from tb_brand-->
+<!--        where status = #{status}-->
+<!--        and company_name like #{companyName}-->
+<!--        and brand_name like #{brandName}-->
+<!--    </select>-->
+
+    <!--
+    动态SQL
+    if：条件判断
+        test：条件表达式
+    问题：当直接使用where关键字并且第一个条件不成立时，可能存在多and的情况
+    解决方案：
+        1.恒等式：在where后加上1=1，保证不会出and的语法错误
+        2. 使用<where>标签替换where关键字
+
+      -->
+<!--    <select id="selectByCondition" resultMap="brandResultMap">-->
+<!--        select * from tb_brand-->
+<!--        where-->
+<!--            <if test="status!=null">and status = #{status}</if>-->
+<!--            <if test="companyName!=null and companyName!=''">and company_name like #{companyName}</if>-->
+<!--            <if test="brandName!=null and brandName!=''">and brand_name like #{brandName}</if>-->
+<!--    </select>-->
+    <!--  where标签  -->
     <select id="selectByCondition" resultMap="brandResultMap">
         select * from tb_brand
-        where status = #{status}
-        and company_name like #{companyName}
-        and brand_name like #{brandName}
+        <where>
+            <if test="status!=null">and status = #{status}</if>
+            <if test="companyName!=null and companyName!=''">and company_name like #{companyName}</if>
+            <if test="brandName!=null and brandName!=''">and brand_name like #{brandName}</if>
+        </where>
     </select>
 </mapper>

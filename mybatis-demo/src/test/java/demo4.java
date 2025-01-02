@@ -48,8 +48,8 @@ public class demo4 {
 
         Map mapCondition = new HashMap<>();
         mapCondition.put("status",status);
-        mapCondition.put("companyName",companyName);
-        mapCondition.put("brandName",brandName);
+//        mapCondition.put("companyName",companyName);
+//        mapCondition.put("brandName",brandName);
         List<Brand> brands2 = mapper.selectByCondition(mapCondition);
         System.out.println(brands2);
         sqlSession.close();
