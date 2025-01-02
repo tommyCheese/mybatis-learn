@@ -8,6 +8,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 
+/**
+ * mybatis基本使用
+ */
 public class demo {
     public static void main(String[] args) throws IOException {
         //1. 加载mybatis的核心配置文件，获取sqlSessionFactory
