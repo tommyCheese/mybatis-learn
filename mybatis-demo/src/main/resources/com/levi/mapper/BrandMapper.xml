@@ -111,4 +111,28 @@
             <if test="brandName!=null and brandName!=''">and brand_name like #{brandName}</if>
         </where>
     </select>
+
+
+    <select id="selectBySingleCondition" resultMap="brandResultMap">
+        select * from tb_brand
+        where <!-- 注意不要使用where标签 -->
+        <choose>
+            <when test="status!=null">status=#{status}</when>
+            <when test="companyName!=null and companyName!=''">company_name like #{companyName}</when>
+            <when test="brandName!=null and brandName!=''">brand_name like #{brandName}</when>
+            <otherwise>1=1</otherwise>
+        </choose>
+    </select>
+
+    <!--可以使用下面的WHERE标签方式来替换otherwise标签中的恒等式-->
+<!--    <select id="selectBySingleCondition" resultMap="brandResultMap">-->
+<!--        select * from tb_brand-->
+<!--        <where>-->
+<!--        <choose>-->
+<!--            <when test="status!=null">status=#{status}</when>-->
+<!--            <when test="companyName!=null and companyName!=''">company_name like #{companyName}</when>-->
+<!--            <when test="brandName!=null and brandName!=''">brand_name like #{brandName}</when>-->
+<!--        </choose>-->
+<!--        </where>-->
+<!--    </select>-->
 </mapper>
