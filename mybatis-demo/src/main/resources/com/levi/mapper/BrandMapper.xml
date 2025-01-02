@@ -8,15 +8,26 @@
       当数据库表中的属性名和类中的属性名不匹配时（包括驼峰与下划线不匹配），mybatis不会进行自动封装
       解决方案：
       1. 在sql中为不匹配的属性起别名，让别名和实体中属性名相同即可，缺点是每次查询都要定义别名,解决方案是定义sql片段；
-      2. resultMap
+      2. resultMap:
+        1. 定义<resultMap>
+        2. 使用resultMap替换<select>中的resultType属性
       -->
     <!--  sql片段  -->
     <sql id="brandColumn">id,brand_name brandName, company_name companyName, ordered, description, status</sql>
 
-    <!--  resultMap  -->
+    <!--
+    resultMap
+    id：唯一标识
+    type：映射的类型
+     -->
     <resultMap id="brandResultMap" type="com.levi.pojo.Brand">
     <!--   主键字段映射     -->
 <!--        <id></id>-->
+        <!--
+        一般字段映射
+             column：表的列名
+             property：实体类的属性名
+         -->
         <result column="brand_name" property="brandName" />
         <result column="company_name" property="companyName" />
     </resultMap>
