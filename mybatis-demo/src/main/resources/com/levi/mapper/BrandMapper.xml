@@ -51,4 +51,29 @@
         <!--        from tb_brand;-->
         select * from tb_brand;
     </select>
+
+    <!--
+        *参数占位符
+        1. #{}：会将参数替换为?，防止sql注入
+        2. ${}：简单的sql字符串拼接，存在注入风险
+        3. 适用场景：
+            * 参数传递时：#{}
+            * 属性不固定：使用Mapper定义方法中的参数灵活传参，拼接字符串（因为参数是内部自己定义的，所以不存在注入问题）；
+        *参数类型 parameterType属性，可以省略
+        *特殊字符处理
+            1.转义字符：单个特殊字符
+            2.CDATA区：多个特殊字符
+
+    -->
+<!--    <select id="selectBrandById" parameterType="int" resultMap="brandResultMap">-->
+<!--        select * from tb_brand where id=#{id};-->
+<!--    </select>-->
+
+    <select id="selectBrandById" parameterType="int" resultMap="brandResultMap">
+        select * from tb_brand where id &lt; #{id};
+<!--        select * from tb_brand where id-->
+<!--        <![CDATA[-->
+<!--             <-->
+<!--        ]]> #{id};-->
+    </select>
 </mapper>

@@ -8,5 +8,12 @@ public interface BrandMapper {
     /**
      * 查询所有品牌
      */
-    public List<Brand> selectAllBrands();
+    List<Brand> selectAllBrands();
+
+    /**
+     * 查看详情：根据ID获取指定品牌
+     * @param id
+     * @return
+     */
+    Brand selectBrandById(Integer id);
 }
