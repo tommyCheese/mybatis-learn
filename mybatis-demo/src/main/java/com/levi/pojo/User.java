@@ -2,10 +2,10 @@ package com.levi.pojo;
 
 public class User {
     private Integer id;
-    private String name;
-    private String password;
+    private String username;
+    private String passwd;
     private  String gender;
-    private String address;
+    private String addr;
 
     public Integer getId() {
         return id;
@@ -16,19 +16,19 @@ public class User {
     }
 
     public String getName() {
-        return name;
+        return username;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.username = name;
     }
 
     public String getPassword() {
-        return password;
+        return passwd;
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.passwd = password;
     }
 
     public String getGender() {
@@ -40,21 +40,21 @@ public class User {
     }
 
     public String getAddress() {
-        return address;
+        return addr;
     }
 
     public void setAddress(String address) {
-        this.address = address;
+        this.addr = address;
     }
 
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
-                ", password='" + password + '\'' +
+                ", name='" + username + '\'' +
+                ", password='" + passwd + '\'' +
                 ", gender='" + gender + '\'' +
-                ", address='" + address + '\'' +
+                ", address='" + addr + '\'' +
                 '}';
     }
 }
