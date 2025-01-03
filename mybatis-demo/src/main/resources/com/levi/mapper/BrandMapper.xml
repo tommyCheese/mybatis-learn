@@ -14,6 +14,7 @@
       -->
     <!--  sql片段  -->
     <sql id="brandColumn">id,brand_name brandName, company_name companyName, ordered, description, status</sql>
+
     <!--
     resultMap
     id：唯一标识
@@ -172,4 +173,9 @@
         </set>
         where id = #{id};
     </update>
+
+    <delete id="deleteByID">
+        delete from tb_brand
+        where id=#{id}
+    </delete>
 </mapper>

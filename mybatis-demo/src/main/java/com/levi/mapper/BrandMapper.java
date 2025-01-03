@@ -63,4 +63,11 @@ public interface BrandMapper {
      * @return
      */
     int updatePartial(Brand brand);
+
+    /**
+     * 根据ID删除品牌
+     * @param id
+     * @return
+     */
+    int deleteByID(int id);
 }
