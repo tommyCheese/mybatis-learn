@@ -38,4 +38,10 @@ public interface BrandMapper {
     List<Brand> selectByCondition(Map map);
 
     List<Brand> selectBySingleCondition(Brand brand);
+
+    /**
+     * 添加
+     * @param brand
+     */
+    void add(Brand brand);
 }

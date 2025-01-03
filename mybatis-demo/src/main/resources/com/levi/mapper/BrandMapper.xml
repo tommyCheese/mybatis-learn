@@ -14,7 +14,6 @@
       -->
     <!--  sql片段  -->
     <sql id="brandColumn">id,brand_name brandName, company_name companyName, ordered, description, status</sql>
-
     <!--
     resultMap
     id：唯一标识
@@ -135,4 +134,9 @@
 <!--        </choose>-->
 <!--        </where>-->
 <!--    </select>-->
+
+    <insert id="add">
+        insert into tb_brand (brand_name, company_name, ordered, description, status)
+        values (#{brandName}, #{companyName}, #{ordered}, #{description}, #{status})
+    </insert>
 </mapper>
