@@ -11,10 +11,10 @@ import java.io.InputStream;
 public class demo8 {
     public static void main(String[] args) throws IOException {
         int status = 1;
-        String companyName = "欧珀w";
+        String companyName = "欧珀";
         String brandName="OPPO";
         String description="手机厂商、绿厂";
-        int order = 100;
+        int order = 255;
 
         //1. 加载mybatis的核心配置文件，获取sqlSessionFactory
         String resource = "mybatis-config.xml";
@@ -34,13 +34,13 @@ public class demo8 {
         BrandMapper mapper = sqlSession.getMapper(BrandMapper.class);
 
         Brand brand = new Brand();
-        brand.setCompanyName(companyName);
-        brand.setBrandName(brandName);
-        brand.setDescription(description);
-        brand.setStatus(status);
-        brand.setOrdered(order);
+//        brand.setCompanyName(companyName);
+//        brand.setBrandName(brandName);
+//        brand.setDescription(description);
+//        brand.setStatus(status);
+//        brand.setOrdered(order);
         brand.setId(18);
-        int count = mapper.update(brand);
+        int count = mapper.updatePartial(brand);
         System.out.println(count);
 
         sqlSession.close();

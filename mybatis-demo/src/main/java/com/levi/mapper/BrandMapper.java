@@ -56,4 +56,11 @@ public interface BrandMapper {
      * @return
      */
     int update(Brand brand);
+
+    /**
+     * 修改部分字段
+     * @param brand
+     * @return
+     */
+    int updatePartial(Brand brand);
 }
