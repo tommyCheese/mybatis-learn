@@ -2,11 +2,21 @@ package com.levi.mapper;
 
 import com.levi.pojo.User;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
 public interface UserMapper {
     List<User> selectUser();
+
+    /**
+     * 根据ID查询用户
+     * 可以使用@Select、@Update、@Delete、@Insert来直接完成数据库操作，而无需更改XML文件
+     * 建议复杂的sql语句仍然使用xml完成，否则注解会十分混乱
+     * @param id
+     * @return
+     */
+    @Select("select * from tb_user where id = #{xxx}")
     User selectUserById(int id);
 
     /**
