@@ -49,4 +49,11 @@ public interface BrandMapper {
      * 添加并获取主键值
      */
     void addGetPrimaryKey(Brand brand);
+
+    /**
+     * 修改信息
+     * @param brand
+     * @return
+     */
+    int update(Brand brand);
 }
