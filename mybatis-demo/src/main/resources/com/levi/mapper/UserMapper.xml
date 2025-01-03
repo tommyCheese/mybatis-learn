@@ -10,4 +10,18 @@
     <select id="selectUserById" resultType="com.levi.pojo.User">
         select * from tb_user where id=#{id};
     </select>
+    <select id="select" resultType="com.levi.pojo.User">
+        select * from tb_user
+        where
+        username=#{username}
+        and
+        passwd = #{password}
+    </select>
+    <select id="selectSecond" resultType="com.levi.pojo.User">
+        select * from tb_user
+        where
+        id=#{user2.id}
+    </select>
+
+
 </mapper>
