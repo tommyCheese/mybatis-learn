@@ -26,8 +26,8 @@ public class demo6 {
         //2. 获取对应的sqlSession对象，用它来执行sql
         /**
          *  autocommit：
-         *      true：开启事务，需要手动提交（sqlSession.commit），否则会报Setting autocommit to false on JDBC Connection（回滚-提交失败）
-         *      false：关闭事务，即自动提交事务
+         *      true：关闭事务，即自动提交事务
+         *      false：开启事务，需要手动提交（sqlSession.commit），否则会报Setting autocommit to false on JDBC Connection（回滚-提交失败）
          */
         SqlSession sqlSession = sqlSessionFactory.openSession(true);
         //3. 执行sql语句
