@@ -70,4 +70,11 @@ public interface BrandMapper {
      * @return
      */
     int deleteByID(int id);
+
+    /**
+     * 删除元素
+     * @param ids
+     * @return
+     */
+    int deleteByIds(@Param("ids") List<Integer>ids);
 }

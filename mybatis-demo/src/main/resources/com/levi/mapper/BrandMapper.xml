@@ -178,4 +178,22 @@
         delete from tb_brand
         where id=#{id}
     </delete>
+    <delete id="deleteByIds">
+        delete from tb_brand
+        where id in
+        <!--
+            mybatis会将数组参数封装为一个map集合
+            * 默认：数组-array，列表-list
+            * 使用@Param来指定参数名称，xml映射文件中的foreach将使用此名称指定容器
+            foreach的属性：
+            * collection：容器名称（默认的array或者@Param参数）
+            * item：元素的名称
+            *open：遍历开始拼接的字符
+            *separator：元素之间的分隔符
+            *close：遍历结束拼接的字符
+        -->
+        <foreach collection="ids" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
 </mapper>
